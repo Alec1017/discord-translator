@@ -52,5 +52,5 @@ source venv/bin/activate
 
 You can run the translator with the following command:
 ```bash
-python main.py
+python run.py
 ```
