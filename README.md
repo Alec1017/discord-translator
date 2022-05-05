@@ -35,12 +35,24 @@ echo "TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXX" >> .env
 
 # add the channel ID of the channel you want translations from
 echo "CHANNEL_ID=0123456789" >> .env
+
+# add the language to translate from
+# in this example, we translate from chinese (zh-CN)
+echo "LANGUAGE_FROM=zh-CN" >> .env
+
+# add the language to translate to
+# in this example, we translate to english (en)
+echo "LANGUAGE_TO=en" >> .env
+
+# language codes can be found here: https://www.andiamo.co.uk/resources/iso-language-codes/
 ```
 
 The resulting `.env` file should look something like this:
 ```
 TOKEN=XXXXXXXXXXXXXXXXXXXXXXXXXX
 CHANNEL_ID=0123456789
+LANGUAGE_FROM=zh-CN
+LANGUAGE_TO=en
 ```
 
 ## Usage

@@ -48,9 +48,9 @@ class DiscordTranslator:
         # detect the language of the text
         detection = self.translator.detect(message_text)
 
-        # if the text is in chinese, then translate it
-        if detection.lang == 'zh-CN':
-            message_text = self.translator.translate(message_text).text
+        # if the text is in the specified language, then translate it
+        if detection.lang.lower() == self.config.LANGUAGE_FROM.lower():
+            message_text = self.translator.translate(message_text, dest=self.config.LANGUAGE_TO).text
 
         print(f"[bold yellow]{username}[/bold yellow]: {message_text}")
 
@@ -96,7 +96,10 @@ class DiscordTranslator:
         response = requests.get(self.config.DISCORD_API, headers=headers, params=options)
         messages = json.loads(response.text)
         for message in reversed(messages):
-            self._display_message(message)
+            try:
+                self._display_message(message)
+            except:
+                pass
 
     def load_realtime_messages(self):
         while True: 
